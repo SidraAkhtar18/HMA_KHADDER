@@ -12,8 +12,8 @@
                 @auth
                     <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                 @else
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/signup">Sign Up</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('signup') }}">Sign Up</a></li>
                 @endauth
             </ul>
         </div>

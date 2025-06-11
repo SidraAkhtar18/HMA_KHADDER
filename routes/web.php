@@ -18,7 +18,7 @@ Route::post('/loginstore', [AuthController::class, 'Auth'])->name('login.store')
 // Route for Role selection
 Route::get('/addrole', [AuthController::class, 'role'])->name('role');
 Route::post('/rolestore', [AuthController::class, 'rolestore'])->name('role.store');
-// Route for Dashboard 
+// Route for Dashboard
 Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');
 Route::get('/adminhome', [AdminController::class, 'Ahome'])->name('Admin.home');
 
@@ -32,4 +32,7 @@ Route::post('/ProductUpdate', [ProductController::class, 'update'])->name('produ
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::post('/categorystore', [CategoryController::class, 'categorystore'])->name('category.store');
+
+//customer side product listing by catogory
+Route::get('/category/{category_id}/products', [ProductController::class, 'ShowCategory'])->name('category.products.show');
 

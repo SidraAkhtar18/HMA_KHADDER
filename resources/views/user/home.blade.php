@@ -5,25 +5,25 @@
 
     {{-- 🔶 Explore Categories Section --}}
     <div class="text-center mb-5">
-       
+
         <div class="d-flex align-items-center justify-content-center my-3">
             <hr class="flex-grow-1 mx-2" style="border-top: 2px solid #333;">
             <h2 class="h4 text-uppercase text-muted">Shop by Category</h2>
             <hr class="flex-grow-1 mx-2" style="border-top: 2px solid #333;">
         </div>
-
         <div class="d-flex justify-content-center gap-4 flex-wrap">
-            {{-- Category 1 --}}
-            <a href="{{ url('/category/plain-khaddar') }}" class="text-decoration-none text-center">
-            <img src="{{ asset('images/c1.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 1" style="width: 100px; height: 100px; object-fit: cover;">
-            <p class="mt-2 text-muted">Plain Khaddar</p>
-            </a>
-            {{-- Category 2 --}}
-            <a href="{{ url('/category/classic-khaddi-khaddar') }}" class="text-decoration-none text-center">
-            <img src="{{ asset('images/c2.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 2" style="width: 100px; height: 100px; object-fit: cover;">
-            <p class="mt-2 text-muted">Classic Khaddi Khaddar</p>
-            </a>
-        </div>
+    {{-- Category 1 --}}
+    <a href="{{ route('category.products.show', ['category_id' => 1]) }}" class="text-decoration-none text-center">
+        <img src="{{ asset('images/c1.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 1" style="width: 100px; height: 100px; object-fit: cover;">
+        <p class="mt-2 text-muted">Sale 1</p>
+    </a>
+    {{-- Category 2 --}}
+    <a href="{{ route('category.products.show', ['category_id' => 2]) }}" class="text-decoration-none text-center">
+        <img src="{{ asset('images/c2.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 2" style="width: 100px; height: 100px; object-fit: cover;">
+        <p class="mt-2 text-muted">Sale 2</p>
+    </a>
+</div>
+
 
     </div>
 

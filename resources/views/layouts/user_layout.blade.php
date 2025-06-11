@@ -117,7 +117,7 @@
     <!-- Links -->
     <div class="collapse navbar-collapse" id="adminNavbar">
       <ul class="navbar-nav ms-auto me-3">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+       <li class="nav-item"><a class="nav-link" href="{{route('User.home')}}">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Summer Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Winter Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Plain Khaddar</a></li>
@@ -136,14 +136,10 @@
   </div>
 </nav>
 
-<!-- 🟡 Hero Section -->
-<section class="py-4 text-center text-dark" style="background-color: rgb(245, 244, 178);">
-  <div class="container">
-    <h1 class="display-4 fw-bold">Welcome to HMA Khaddar</h1>
-    <p class="lead">Explore our exclusive collection of premium khaddar fabrics.</p>
-    <a href="#" class="btn btn-primary btn-lg mt-3">Shop Now</a>
-  </div>
-</section>
+<!-- 🟡 Home Section -->
+<main>
+  @yield('homecontent')
+</main>
 
 <!-- 🔵 Main Content -->
 <main>

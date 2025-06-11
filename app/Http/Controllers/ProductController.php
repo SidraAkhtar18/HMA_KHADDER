@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
  public function productstore(Request $request)
 {
-   
+
     $product = new Product();
     $product->name = $request->name;
     $product->price = $request->price;
@@ -74,7 +74,7 @@ class ProductController extends Controller
             $UpdateProduct->price = $request->price;
             $UpdateProduct->description = $request->description;
             $UpdateProduct->available = $request->available;
-          
+
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -111,4 +111,19 @@ class ProductController extends Controller
         }
 
     }
+
+    public function ShowCategory(Request $request, $category_id)
+{
+    // Get products by category id
+    $products = Product::where('category_id', $category_id)->get();
+
+    // Check category id and return appropriate view
+    if ($category_id == 1) {
+        return view('user.productshowbycatogory1', compact('products'));
+    } elseif ($category_id == 2) {
+        return view('user.productshowbycatogory2', compact('products'));
+    } else {
+        return redirect()->back();
+    }
+}
 }
