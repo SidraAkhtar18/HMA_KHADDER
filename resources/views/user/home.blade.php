@@ -1,7 +1,20 @@
 @extends('layouts.user_layout')
-
+@section('herocontent')
+    <div class="container mid mb-4" style="margin-bottom: 20px; margin-top: 30px;">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <h1 class="display-4 fw-bold mb-3">Welcome to HMA Khadder</h1>
+                <p class="lead mb-4">Discover premium quality Khadder fabrics for every season. Shop the latest collections and enjoy exclusive offers!</p>
+                <a href="{{ route('category.products.show', ['category_id' => 1]) }}" class="btn btn-primary btn-lg">Shop Now</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{{ asset('images/f2.jpg') }}" alt="Khadder Fabrics" class="img-fluid rounded shadow" style="height: 350px; width: 350px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
-<div class="container mt-5">
+<div class="container mt-5" style="margin-top: 20px;">
 
     {{-- 🔶 Explore Categories Section --}}
     <div class="text-center mb-5">
@@ -22,142 +35,6 @@
         <img src="{{ asset('images/c2.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 2" style="width: 100px; height: 100px; object-fit: cover;">
         <p class="mt-2 text-muted">Sale 2</p>
     </a>
-</div>
-
-
     </div>
-
-    {{-- 🔷 Plain Premium Khaddar Section --}}
-    <h3 class="mb-4 text-muted">Plain Premium Khaddar</h3>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
-        {{-- Product Card 1 --}}
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Gulf Stream Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Plain Premium Khaddar - Gulf Stream</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 3,700.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 2,999.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-
-        {{-- Product Card 2 --}}
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Light Brown Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Plain Premium Khaddar - Light Brown</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 3,700.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 2,999.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-
-        {{-- Product Card 3 --}}
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Monte Carlo Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Plain Premium Khaddar - Monte Carlo</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 3,700.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 2,999.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Gulf Stream Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Plain Premium Khaddar - Gulf Stream</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 3,700.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 2,999.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- 🔷 Classic Khaddi Khaddar Section --}}
-    <h3 class="mb-4 text-muted">Classic Khaddi Khaddar</h3>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
-        {{-- Product Card 1 --}}
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="White Shade Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Classic Khaddi Khaddar - White Shade</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 2,100.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 1,650.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-
-        {{-- Product Card 2 --}}
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Dark Blue Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Classic Khaddi Khaddar - Dark Blue</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 2,100.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 1,650.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-
-        {{-- Product Card 3 --}}
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Brown Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Classic Khaddi Khaddar - Brown</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 2,100.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 1,650.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="{{ asset('images/f1.jpeg') }}" class="card-img-top" alt="Gulf Stream Khaddar">
-                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Sale</span>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Plain Premium Khaddar - Gulf Stream</h5>
-                    <p class="card-text text-decoration-line-through text-muted">Rs. 3,700.00</p>
-                    <p class="card-text text-danger fw-bold">Rs. 2,999.00</p>
-                    <button class="btn btn-dark w-100">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 @endsection

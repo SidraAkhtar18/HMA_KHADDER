@@ -11,7 +11,7 @@ use App\Http\Controllers\CategoryController;
 
 
 // Route for signup and login
-Route::get('/signup', [AuthController::class, 'Rindex'])->name('signup');
+Route::get('/', [AuthController::class, 'Rindex'])->name('signup');
 Route::post('/signupstore', [AuthController::class, 'store'])->name('signup.store');
 Route::get('/login', [AuthController::class, 'Lindex'])->name('login');
 Route::post('/loginstore', [AuthController::class, 'Auth'])->name('login.store');

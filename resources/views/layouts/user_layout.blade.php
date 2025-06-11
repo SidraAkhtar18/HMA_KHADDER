@@ -3,29 +3,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HMA Khaddar</title>
+
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
+    :root {
+      --primary: #3B5998;
+      --accent: #A67C52;
+      --bg: #f3f4f6;
+      --footer-bg: #e1e5f2;
+      --text-dark: #1a1a1a;
+    }
+
     body {
-      background-color: #e8f0e2;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text-dark);
     }
 
-    nav {
-      background-color: rgb(154, 157, 206) !important;
+    .navbar {
+      background-color: var(--primary) !important;
     }
 
-    .navbar .nav-link {
-      color: #333;
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: white !important;
       font-weight: 500;
       transition: all 0.3s ease-in-out;
     }
 
-    .nav-link:hover {
-      border-bottom: 2px solid purple;
-      color:rgb(231, 187, 130) !important;
+    .navbar .nav-link:hover {
+      color: var(--accent) !important;
+      border-bottom: 2px solid var(--accent);
     }
 
     .navbar-brand img {
@@ -36,61 +50,53 @@
       border-radius: 20px;
     }
 
-    .btn-outline-dark {
+    .btn-outline-light {
       border-radius: 20px;
+      border: 1px solid white;
+      color: white;
     }
 
-    section.bg {
-      background-color: #b4cf9b;
+    .btn-outline-light:hover {
+      background-color: white;
+      color: var(--primary);
     }
 
-    .btn-primary {
-      background-color: purple;
-      border: none;
-      border-radius: 25px;
-      padding: 10px 25px;
-      transition: 0.3s ease;
+    main {
+      padding: 50px 20px;
     }
 
-    .btn-primary:hover {
-      background-color: #5e3370;
+    .fade-section {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
     }
 
-    footer {
-       background-color: rgb(154, 157, 206);
-      color: #333;
+    .footer {
+      background-color: #1A1A1A;
+      color: var(--bg-color);
+      padding: 40px 0;
     }
 
     footer h6 {
-      color: #222;
-      font-weight: 600;
-      margin-bottom: 15px;
+      font-weight: bold;
+      margin-bottom: 16px;
     }
 
     footer a {
-      color: #444;
+      color: #333;
       text-decoration: none;
-      transition: color 0.2s ease;
     }
 
     footer a:hover {
-      color: #000;
-    }
-
-    footer ul {
-      padding-left: 0;
-      list-style: none;
-    }
-
-    footer p, footer li {
-      font-size: 14px;
+      color: var(--accent);
     }
 
     .bi {
-      margin-right: 5px;
+      margin-right: 6px;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       .navbar-nav {
         text-align: center;
       }
@@ -101,53 +107,51 @@
     }
   </style>
 </head>
-<body class="bg-light">
 
-<!-- ✅ Navbar -->
+<body>
+
+<!-- 🔷 Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm py-3">
   <div class="container-fluid">
-    <!-- Logo -->
     <a class="navbar-brand" href="#">
       <img src="{{ asset('images/logo.jpeg') }}" alt="Logo">
     </a>
-    <!-- Toggle -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Links -->
     <div class="collapse navbar-collapse" id="adminNavbar">
       <ul class="navbar-nav ms-auto me-3">
-       <li class="nav-item"><a class="nav-link" href="{{route('User.home')}}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('User.home')}}">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Summer Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Winter Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Plain Khaddar</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
       </ul>
-      <!-- Searchbar -->
       <form class="d-flex me-3" role="search">
         <input class="form-control form-control-sm me-2" type="search" placeholder="Search products..." aria-label="Search">
-        <button class="btn btn-outline-dark btn-sm" type="submit">Search</button>
+        <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
       </form>
-      <!-- Icons -->
-      <a href="#" class="text-dark"><i class="bi bi-person-circle fs-4"></i></a>
-      <a href="#" class="text-dark ms-3"><i class="bi bi-cart-fill fs-4"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-person-circle fs-4"></i></a>
+      <a href="#" class="text-white ms-3"><i class="bi bi-cart-fill fs-4"></i></a>
     </div>
   </div>
 </nav>
 
-<!-- 🟡 Home Section -->
+<!-- 🟡 Hero Section -->
 <main>
-  @yield('homecontent')
+  <div class="fade-section" data-aos="fade-up">
+   
+    @yield('herocontent')
+     @yield('content')
+    @yield('cat1content')
+    @yield('cat2content')
+    
+  </div>
 </main>
 
-<!-- 🔵 Main Content -->
-<main>
-  @yield('content')
-</main>
-
-<!-- 🔘 Footer -->
-<footer class="pt-5 pb-3 mt-5">
+<!-- ⚫ Footer -->
+<footer>
   <div class="container text-center text-md-start">
     <div class="row">
       <div class="col-md-4 mb-4">
@@ -158,7 +162,7 @@
       </div>
       <div class="col-md-4 mb-4">
         <h6>Customer Care</h6>
-        <ul>
+        <ul class="list-unstyled">
           <li><a href="#">Exchange & Return Policy</a></li>
           <li><a href="#">Terms of Service</a></li>
           <li><a href="#">Contact Us</a></li>
@@ -166,7 +170,7 @@
       </div>
       <div class="col-md-4 mb-4">
         <h6>Information</h6>
-        <ul>
+        <ul class="list-unstyled">
           <li><a href="#">About Us</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Shipping Policy</a></li>
@@ -180,6 +184,12 @@
   </div>
 </footer>
 
+<!-- JS Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+</script>
+
 </body>
 </html>

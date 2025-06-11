@@ -1,6 +1,6 @@
 @extends('layouts.user_layout')
 
-@section('content')
+@section('cat2content')
 <div class="container">
     <h2 class="mb-4">Sale 60% off</h2>
     <div class="row">
