@@ -121,7 +121,7 @@
     </button>
     <div class="collapse navbar-collapse" id="adminNavbar">
       <ul class="navbar-nav ms-auto me-3">
-        <li class="nav-item"><a class="nav-link" href="{{route('User.home')}}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('Userhome')}}">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Summer Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Winter Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Plain Khaddar</a></li>

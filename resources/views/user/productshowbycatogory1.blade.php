@@ -1,5 +1,4 @@
 @extends('layouts.user_layout')
-
 @section('cat1content')
 <div class="container">
     <h2 class="mb-4">Sale 40% Off</h2>
@@ -7,13 +6,11 @@
         @foreach($products as $product)
             <div class="col-md-3 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-4 position-relative">
-
                     <!-- Sale Circle Badge -->
                     <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2 rounded-circle d-flex align-items-center justify-content-center"
                           style="width: 40px; height: 40px; font-size: 0.9rem;">
                         Sale
                     </span>
-
                     <!-- Image -->
                     @if($product->image)
                         <img src="{{ asset('images/' . $product->image) }}" class="card-img-top rounded-top-4" style="height: 230px; object-fit: cover;" alt="{{ $product->name }}">

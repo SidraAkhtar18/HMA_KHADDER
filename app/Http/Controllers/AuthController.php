@@ -9,9 +9,6 @@ use Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function Rindex()
     {
         $roles = Role::all();
@@ -70,6 +67,14 @@ class AuthController extends Controller
             return view ("Auth.login");
 
     }}}
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Logged out successfully!');
+    }
     public function show(Auth $auth)
     {
         

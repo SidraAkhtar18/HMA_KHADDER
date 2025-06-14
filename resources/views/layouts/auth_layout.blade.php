@@ -59,7 +59,17 @@
             <div class="collapse navbar-collapse" id="navbarAuth">
                 <ul class="navbar-nav ms-auto">
                     @auth
-                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('User.home') }}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="nav-link btn btn-link text-white text-decoration-none">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
                     @else
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('signup') }}">Sign Up</a></li>
@@ -83,4 +93,5 @@
         AOS.init({ duration: 800, once: true });
     </script>
 </body>
+
 </html>
