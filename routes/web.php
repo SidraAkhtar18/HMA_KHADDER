@@ -21,10 +21,10 @@ Route::get('/addrole', [AuthController::class, 'role'])->name('role');
 Route::post('/rolestore', [AuthController::class, 'rolestore'])->name('role.store');
 // Route for Dashboard
 Route::middleware(['auth'])->group(function () {
-    Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');  
+    Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');
 });
 Route::get('/adminhome', [AdminController::class, 'Ahome'])->name('Admin.home');
-Route::get('/customerhomein', [HomeController::class, 'Chome'])->name('Userhome'); 
+Route::get('/customerhomein', [HomeController::class, 'Chome'])->name('Userhome');
 // Route for Product
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/productlist', [ProductController::class, 'productlist'])->name('product.list');
@@ -36,4 +36,11 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 Route::post('/categorystore', [CategoryController::class, 'categorystore'])->name('category.store');
 //customer side product listing by catogory
 Route::get('/category/{category_id}/products', [ProductController::class, 'ShowCategory'])->name('category.products.show');
+
+// Route for About Us and Contact Us
+Route::get('/aboutus', [HomeController::class, 'about'])->name('aboutus');
+Route::post('/aboutusstore', [HomeController::class, 'aboutstore'])->name('aboutus.store');
+Route::get('/contactus', [HomeController::class, 'contact'])->name('contactus');
+Route::post('/contactusstore', [HomeController::class, 'contactstore'])->name('contactus.store');
+
 

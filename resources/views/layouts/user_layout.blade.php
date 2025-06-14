@@ -125,8 +125,8 @@
         <li class="nav-item"><a class="nav-link" href="#">Summer Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Winter Collection</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Plain Khaddar</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('contactus')}}">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('aboutus')}}">About Us</a></li>
       </ul>
       <form class="d-flex me-3" role="search">
         <input class="form-control form-control-sm me-2" type="search" placeholder="Search products..." aria-label="Search">
@@ -141,12 +141,14 @@
 <!-- 🟡 Hero Section -->
 <main>
   <div class="fade-section" data-aos="fade-up">
-   
+
     @yield('herocontent')
      @yield('content')
     @yield('cat1content')
     @yield('cat2content')
-    
+    @yield('contactus')
+    @yield('aboutus')
+
   </div>
 </main>
 
@@ -165,13 +167,13 @@
         <ul class="list-unstyled">
           <li><a href="#">Exchange & Return Policy</a></li>
           <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="{{route('contactus')}}">Contact Us</a></li>
         </ul>
       </div>
       <div class="col-md-4 mb-4">
         <h6>Information</h6>
         <ul class="list-unstyled">
-          <li><a href="#">About Us</a></li>
+          <li><a href="{{route('aboutus')}}">About Us</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Shipping Policy</a></li>
         </ul>
