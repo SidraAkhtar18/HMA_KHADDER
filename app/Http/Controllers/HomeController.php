@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $store= new AboutUsFeedback();
         $store->username = $request->userName;
-        $store-> userfeedback= $request->usereedback;
+        $store-> userfeedback= $request->userFeedback;
         $store->save();
         return redirect()->back()->with('success', 'About Us information stored successfully.');
 
