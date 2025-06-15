@@ -6,7 +6,10 @@ use App\Models\Home;
 use App\Models\ContactUs;
 use App\Models\AboutUsFeedback;
 use App\Models\Product;
+use App\Models\Auth;
+
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -45,17 +48,24 @@ class HomeController extends Controller
         $store->save();
         return redirect()->back()->with('success', 'Contact Us information stored successfully.');
     }
-    /**
-     * Show the form for creating a new resource.
-     */
+   
+//   public function profile()
+// {
+//     $user = Auth::user();
+
+//     if ($user && $user->role_id == 2) {
+//         return view('User.profile', compact('user'));
+//     } else {
+//         return redirect()->route('login')->with('error', 'You must be logged in.');
+//     }
+// }
+
+
     public function create()
     {
-        //
+       
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //

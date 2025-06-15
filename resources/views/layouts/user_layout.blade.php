@@ -128,11 +128,14 @@
         <li class="nav-item"><a class="nav-link" href="{{route('contactus')}}">Contact Us</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('aboutus')}}">About Us</a></li>
       </ul>
-      <form class="d-flex me-3" role="search">
-        <input class="form-control form-control-sm me-2" type="search" placeholder="Search products..." aria-label="Search">
-        <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
-      </form>
-      <a href="#" class="text-white"><i class="bi bi-person-circle fs-4"></i></a>
+   <form class="d-flex me-3" role="search" method="GET" action="{{ route('products.search') }}"> 
+    <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
+    <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
+    </form>
+<!-- In Customer Navbar -->
+<a href="{{ route('user.profile') }}" class="nav-link">
+    <i class="bi bi-person-circle"></i> Profile
+</a>
       <a href="#" class="text-white ms-3"><i class="bi bi-cart-fill fs-4"></i></a>
     </div>
   </div>
@@ -141,14 +144,15 @@
 <!-- 🟡 Hero Section -->
 <main>
   <div class="fade-section" data-aos="fade-up">
-
     @yield('herocontent')
-     @yield('content')
+    @yield('content')
     @yield('cat1content')
     @yield('cat2content')
     @yield('contactus')
     @yield('aboutus')
-
+    @yield('message')
+    @yield('searchproduct')
+    @yeild('userprofile')
   </div>
 </main>
 

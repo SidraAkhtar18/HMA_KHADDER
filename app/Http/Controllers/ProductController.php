@@ -126,4 +126,31 @@ class ProductController extends Controller
         return redirect()->back();
     }
 }
+public function search(Request $request)
+{
+    $query = trim($request->input('query'));
+
+    if (empty($query)) {
+        return view('Admin.search_results', [
+            'products' => [],
+            'query' => '',
+            'oops' => 'Please enter a search query.'
+        ]);
+    }
+
+    $products = Product::where('name', 'LIKE', "%$query%")->get();
+
+    if ($products->isEmpty()) {
+        return view('Admin.search_results', [
+            'products' => [],
+            'query' => $query,
+            'oops' => 'No product found for "' . $query . '".'
+        ]);
+    }
+
+    return view('Admin.search_results', compact('products', 'query'));
+}
+
+
+
 }

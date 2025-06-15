@@ -115,11 +115,15 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('product.list') }}">List Products</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
         </ul>
-        <form class="d-flex ms-3" role="search">
-          <input class="form-control form-control-sm me-2" type="search" placeholder="Search products..." aria-label="Search">
-          <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
+        <form class="d-flex me-3" role="search" method="GET" action="{{ route('admin.products.search') }}"> 
+        <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
+        <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
         </form>
-        <a href="#" class="ms-3"><i class="bi bi-person-circle fs-4 text-white"></i></a>
+
+      <!-- In Admin Navbar -->
+<a href="{{ route('admin.profile') }}" class="nav-link">
+    <i class="bi bi-person-circle"></i> Profile
+</a>
       </div>
     </div>
   </nav>
@@ -133,6 +137,7 @@
       @yield('listproductcontent')
       @yield('updateproductcontent')
       @yield('categorycontent')
+      @yeild('adminprofile')
     </div>
   </main>
 

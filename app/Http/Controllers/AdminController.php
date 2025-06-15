@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,9 +16,38 @@ class AdminController extends Controller
         return view('Admin.home');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function search(Request $request)
+{
+    $query = trim($request->input('query'));
+
+    // Case 1: Empty query — return the view with just the message
+    if (empty($query)) {
+        return view('Admin.search_results', [
+            'products' => [],
+            'query' => '',
+            'oops' => 'Please enter a search query.'
+        ]);
+    }
+    // Case 2: Search by product name
+    $products = Product::where('name', 'LIKE', "%$query%")->get();
+
+    // Case 3: No products found
+    if ($products->isEmpty()) {
+        return view('Admin.search_results', [
+            'products' => [],
+            'query' => $query,
+            'oops' => 'No product found for "' . $query . '".'
+        ]);
+    }
+    // Case 4: Products found
+    return view('Admin.search_results', compact('products', 'query'));
+}
+public function profile()
+{
+    $admin = auth()->user(); // logged-in user (admin)
+    return view('Admin.profile', compact('admin'));
+}
+
     public function create()
     {
         //
