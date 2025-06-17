@@ -119,15 +119,13 @@
         <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
         <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
         </form>
-
       <!-- In Admin Navbar -->
-<a href="{{ route('admin.profile') }}" class="nav-link">
+<a href="#" class="nav-link">
     <i class="bi bi-person-circle"></i> Profile
 </a>
-      </div>
+    </div>
     </div>
   </nav>
-
   <!-- Main Content Area with Fade-Up Animation -->
   <main class="container">
     <div class="section-content" data-aos="fade-in">
@@ -137,7 +135,9 @@
       @yield('listproductcontent')
       @yield('updateproductcontent')
       @yield('categorycontent')
-      @yeild('adminprofile')
+       @yield('adminsearchcontent')
+      
+    
     </div>
   </main>
 

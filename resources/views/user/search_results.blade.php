@@ -1,9 +1,9 @@
-@extends('layouts.admin_layout')
+@extends('layouts.user_layout')
 
-@section('adminsearchcontent')
+@section('usersearchcontent')
 <div class="container mt-4">
 
-    <h3 class="mb-4">Search Products (Admin)</h3>
+    <h3 class="mb-4">Search Products (User)</h3>
     {{-- Error Message --}}
     @if(isset($oops))
         <div class="alert alert-warning">{{ $oops }}</div>

@@ -122,13 +122,13 @@
     <div class="collapse navbar-collapse" id="adminNavbar">
       <ul class="navbar-nav ms-auto me-3">
         <li class="nav-item"><a class="nav-link" href="{{route('Userhome')}}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Summer Collection</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Winter Collection</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Plain Khaddar</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('category.products.show', ['category_id' => 3]) }}">Summer Collection</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('category.products.show', ['category_id' => 4]) }}">Winter Collection</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('category.products.show', ['category_id' => 5]) }}">Plain Khaddar</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('contactus')}}">Contact Us</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('aboutus')}}">About Us</a></li>
       </ul>
-   <form class="d-flex me-3" role="search" method="GET" action="{{ route('products.search') }}"> 
+   <form class="d-flex me-3" role="search" method="GET" action="{{ route('user.products.search') }}"> 
     <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
     <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
     </form>
@@ -140,7 +140,6 @@
     </div>
   </div>
 </nav>
-
 <!-- 🟡 Hero Section -->
 <main>
   <div class="fade-section" data-aos="fade-up">
@@ -148,11 +147,22 @@
     @yield('content')
     @yield('cat1content')
     @yield('cat2content')
+    @yield('cat3content')
+    @yield('cat4content')
+    @yield('cat5content')
+   
     @yield('contactus')
     @yield('aboutus')
     @yield('message')
-    @yield('searchproduct')
-    @yeild('userprofile')
+    
+    @yield('ERP')
+    @yield('PP')
+    @yield('SP') 
+    @yield('TOS')
+    @yield('usersearchcontent')
+    
+
+  
   </div>
 </main>
 
@@ -169,8 +179,8 @@
       <div class="col-md-4 mb-4">
         <h6>Customer Care</h6>
         <ul class="list-unstyled">
-          <li><a href="#">Exchange & Return Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+            <li><a href="{{ route('exchange.return') }}">Exchange & Return Policy</a></li>
+    <li><a href="{{ route('terms') }}">Terms of Service</a></li>
           <li><a href="{{route('contactus')}}">Contact Us</a></li>
         </ul>
       </div>
@@ -178,8 +188,8 @@
         <h6>Information</h6>
         <ul class="list-unstyled">
           <li><a href="{{route('aboutus')}}">About Us</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Shipping Policy</a></li>
+           <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+    <li><a href="{{ route('shipping') }}">Shipping Policy</a></li>
         </ul>
       </div>
     </div>

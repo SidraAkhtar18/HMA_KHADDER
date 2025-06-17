@@ -48,58 +48,23 @@ class HomeController extends Controller
         $store->save();
         return redirect()->back()->with('success', 'Contact Us information stored successfully.');
     }
-   
-//   public function profile()
-// {
-//     $user = Auth::user();
-
-//     if ($user && $user->role_id == 2) {
-//         return view('User.profile', compact('user'));
-//     } else {
-//         return redirect()->route('login')->with('error', 'You must be logged in.');
-//     }
-// }
-
-
-    public function create()
+   public function exchangeReturn()
     {
-       
+        return view('user.exchange&returnpolicy');
     }
 
-    public function store(Request $request)
+    public function terms()
     {
-        //
+        return view('user.termsofservices');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Home $home)
+    public function privacy()
     {
-        //
+        return view('user.privacypolicy');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Home $home)
+    public function shipping()
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Home $home)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Home $home)
-    {
-        //
+        return view('user.shippingpolicy');
     }
 }

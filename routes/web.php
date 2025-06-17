@@ -41,10 +41,14 @@ Route::post('/aboutusstore', [HomeController::class, 'aboutstore'])->name('about
 Route::get('/contactus', [HomeController::class, 'contact'])->name('contactus');
 Route::post('/contactusstore', [HomeController::class, 'contactstore'])->name('contactus.store');
 // Route for search product on customer side 
-Route::get('/search', [ProductController::class, 'search'])->name('products.search');
+Route::get('/usersearch', [ProductController::class, 'search'])->name('user.products.search');
 //Route for admin product search 
-Route::get('/admin/search-products', [AdminController::class, 'search'])->name('admin.products.search');
-
+Route::get('/adminproducts', [AdminController::class, 'search'])->name('admin.products.search');
+//Route for footer Material
+Route::get('/exchange-return', [HomeController::class, 'exchangeReturn'])->name('exchange.return');
+Route::get('/terms-of-service', [HomeController::class, 'terms'])->name('terms');
+Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy');
+Route::get('/shipping-policy', [HomeController::class, 'shipping'])->name('shipping');
 
 
 

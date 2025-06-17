@@ -116,13 +116,19 @@ class ProductController extends Controller
 {
     // Get products by category id
     $products = Product::where('category_id', $category_id)->get();
-
     // Check category id and return appropriate view
     if ($category_id == 1) {
         return view('user.productshowbycatogory1', compact('products'));
     } elseif ($category_id == 2) {
         return view('user.productshowbycatogory2', compact('products'));
-    } else {
+    } elseif ($category_id == 3) {
+        return view('user.summercollection', compact('products'));    
+    } elseif ($category_id == 4) {
+        return view('user.wintercollection', compact('products'));
+    } 
+    elseif ($category_id == 5) {
+        return view('user.plainkhadder', compact('products'));
+    }else {
         return redirect()->back();
     }
 }
@@ -131,7 +137,7 @@ public function search(Request $request)
     $query = trim($request->input('query'));
 
     if (empty($query)) {
-        return view('Admin.search_results', [
+        return view('user.search_results', [
             'products' => [],
             'query' => '',
             'oops' => 'Please enter a search query.'
@@ -141,14 +147,14 @@ public function search(Request $request)
     $products = Product::where('name', 'LIKE', "%$query%")->get();
 
     if ($products->isEmpty()) {
-        return view('Admin.search_results', [
+        return view('user.search_results', [
             'products' => [],
             'query' => $query,
             'oops' => 'No product found for "' . $query . '".'
         ]);
     }
 
-    return view('Admin.search_results', compact('products', 'query'));
+    return view('user.search_results', compact('products', 'query'));
 }
 
 

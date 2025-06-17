@@ -8,7 +8,7 @@
                 <a href="{{ route('category.products.show', ['category_id' => 1]) }}" class="btn btn-primary btn-lg">Shop Now</a>
             </div>
             <div class="col-md-6 text-center">
-                <img src="{{ asset('images/f2.jpg') }}" alt="Khadder Fabrics" class="img-fluid rounded shadow" style="height: 350px; width: 350px; object-fit: cover;">
+                <img src="{{ asset('images/P7.jpg') }}" alt="Khadder Fabrics" class="img-fluid rounded shadow" style="height: 350px; width: 350px; object-fit: cover;">
             </div>
         </div>
     </div>
@@ -25,14 +25,14 @@
         </div>
         <div class="d-flex justify-content-center gap-4 flex-wrap">
     {{-- Category 1 --}}
-    <a href="{{ route('category.products.show', ['category_id' => 1]) }}" class="text-decoration-none text-center">
+    <a href="{{ route('category.products.show', ['category_id' => 3]) }}" class="text-decoration-none text-center">
         <img src="{{ asset('images/c1.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 1" style="width: 100px; height: 100px; object-fit: cover;">
-        <p class="mt-2 text-muted">Sale 1</p>
+        <p class="mt-2 text-muted">Summer Collection Sale</p>
     </a>
     {{-- Category 2 --}}
-    <a href="{{ route('category.products.show', ['category_id' => 2]) }}" class="text-decoration-none text-center">
+    <a href="{{ route('category.products.show', ['category_id' => 4]) }}" class="text-decoration-none text-center">
         <img src="{{ asset('images/c2.jpeg') }}" class="rounded-circle img-fluid border border-2 p-1" alt="Category 2" style="width: 100px; height: 100px; object-fit: cover;">
-        <p class="mt-2 text-muted">Sale 2</p>
+        <p class="mt-2 text-muted">Winter Collection Sale</p>
     </a>
     </div>
 </div>

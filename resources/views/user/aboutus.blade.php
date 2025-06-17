@@ -19,7 +19,7 @@
       <textarea class="form-control" id="userFeedback" name="userFeedback" rows="4" required></textarea>
     </div>
 
-    <button type="submit" class="btn btn-success">Submit Feedback</button>
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
   </form>
 </div>
 
