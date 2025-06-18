@@ -17,41 +17,25 @@
    <table class="table table-bordered mt-3">
         <thead class="table-dark">
             <tr>
-                <th>ID</th>
+
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price (Rs.)</th>
-                 <th>Categories</th> 
-                <th>Edit</th>
-                <th>Delete</th>
-                 <th>Available</th>
-                <th>Image</th>  
-                          
+                <th>Available</th>
+                <th>Image</th>
+
             </tr>
         </thead>
         <tbody>
             @forelse($products as $product)
             <tr>
-                <td>{{ $product->id }}</td>
+
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
-                <td>{{ number_format($product->price, 2) }}</td> 
-                <td>{{ $product->category_id}}</td>                            
+                <td>{{ number_format($product->price, 2) }}</td>
+
                   <td>
-                <form action="{{route('products.edit')}}" method="POST">
-                @csrf
-                <input type="hidden" name="edit" value="{{ $product->id }}">
-                <button type="submit">Edit</button>
-                </form>
-            </td>
-            <td>
-                <form action="{{route('products.destroy')}}" method="POST">
-                @csrf
-                <input type="hidden" name="delete" value="{{ $product->id }}">
-                <button type="submit">Delete</button>
-                </form>
-            </td>     
-                <td>
+
                     @if($product->available == 'In Stock')
                         <span class="badge bg-success">In Stock</span>
                     @else

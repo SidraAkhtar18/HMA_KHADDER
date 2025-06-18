@@ -122,10 +122,10 @@ class ProductController extends Controller
     } elseif ($category_id == 2) {
         return view('user.productshowbycatogory2', compact('products'));
     } elseif ($category_id == 3) {
-        return view('user.summercollection', compact('products'));    
+        return view('user.summercollection', compact('products'));
     } elseif ($category_id == 4) {
         return view('user.wintercollection', compact('products'));
-    } 
+    }
     elseif ($category_id == 5) {
         return view('user.plainkhadder', compact('products'));
     }else {
@@ -156,6 +156,12 @@ public function search(Request $request)
 
     return view('user.search_results', compact('products', 'query'));
 }
+
+public function showproductdetails($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('Product.productdetails', compact('product'));
+    }
 
 
 

@@ -128,7 +128,7 @@
         <li class="nav-item"><a class="nav-link" href="{{route('contactus')}}">Contact Us</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('aboutus')}}">About Us</a></li>
       </ul>
-   <form class="d-flex me-3" role="search" method="GET" action="{{ route('user.products.search') }}"> 
+   <form class="d-flex me-3" role="search" method="GET" action="{{ route('user.products.search') }}">
     <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
     <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
     </form>
@@ -144,25 +144,27 @@
 <main>
   <div class="fade-section" data-aos="fade-up">
     @yield('herocontent')
-    @yield('content')
+    @yield('catcontent')
     @yield('cat1content')
     @yield('cat2content')
     @yield('cat3content')
     @yield('cat4content')
     @yield('cat5content')
-   
+
     @yield('contactus')
     @yield('aboutus')
     @yield('message')
-    
+
+
     @yield('ERP')
     @yield('PP')
-    @yield('SP') 
+    @yield('SP')
     @yield('TOS')
     @yield('usersearchcontent')
-    
+    @yield('productdetails)
 
-  
+
+
   </div>
 </main>
 

@@ -16,10 +16,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route for Role selection
 Route::get('/addrole', [AuthController::class, 'role'])->name('role');
 Route::post('/rolestore', [AuthController::class, 'rolestore'])->name('role.store');
-//auth 
+//auth
 Route::middleware(['auth'])->group(function () {
-      Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');
-    Route::get('/profile', [HomeController::class, 'profile'])->name('user.profile');
+    Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');
+
 });
 // Route for Dashboard
 Route::get('/adminhome', [AdminController::class, 'Ahome'])->name('Admin.home');
@@ -40,9 +40,9 @@ Route::get('/aboutus', [HomeController::class, 'about'])->name('aboutus');
 Route::post('/aboutusstore', [HomeController::class, 'aboutstore'])->name('aboutus.store');
 Route::get('/contactus', [HomeController::class, 'contact'])->name('contactus');
 Route::post('/contactusstore', [HomeController::class, 'contactstore'])->name('contactus.store');
-// Route for search product on customer side 
+// Route for search product on customer side
 Route::get('/usersearch', [ProductController::class, 'search'])->name('user.products.search');
-//Route for admin product search 
+//Route for admin product search
 Route::get('/adminproducts', [AdminController::class, 'search'])->name('admin.products.search');
 //Route for footer Material
 Route::get('/exchange-return', [HomeController::class, 'exchangeReturn'])->name('exchange.return');
@@ -50,7 +50,5 @@ Route::get('/terms-of-service', [HomeController::class, 'terms'])->name('terms')
 Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/shipping-policy', [HomeController::class, 'shipping'])->name('shipping');
 
-
-
-
-
+//show product details
+Route::get('/product/{id}', [ProductController::class, 'showproductdetails'])->name('product.details');

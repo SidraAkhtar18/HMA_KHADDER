@@ -13,11 +13,14 @@
                     </span>
                     <!-- Image -->
                     @if($product->image)
+                    <a href="{{ route('product.details', $product->id) }}">
                         <img src="{{ asset('images/' . $product->image) }}" class="card-img-top rounded-top-4" style="height: 230px; object-fit: cover;" alt="{{ $product->name }}">
+                    </a>
                     @else
+                    <a href="{{ route('product.details', $product->id) }}">
                         <img src="{{ asset('images/default.png') }}" class="card-img-top rounded-top-4" alt="No Image">
+                    </a>
                     @endif
-
                     <div class="card-body text-center d-flex flex-column">
 
                         <!-- Product Name -->
@@ -42,7 +45,7 @@
                                 {{ ucfirst($product->available) }}
                             </span>
                         </span>
-                      
+
                         <a href="#" class="btn mt-auto rounded-pill fw-semibold"
                            style="background-color: #1A1A1A; color: white;">
                             ADD TO CART

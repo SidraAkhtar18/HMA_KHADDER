@@ -13,7 +13,7 @@
         </div>
     </div>
 @endsection
-@section('content')
+@section('catcontent')
 <div class="container mt-5" style="margin-top: 20px;">
     {{-- 🔶 Explore Categories Section --}}
     <div class="text-center mb-5">
