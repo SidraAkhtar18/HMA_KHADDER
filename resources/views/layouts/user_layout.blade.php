@@ -133,9 +133,7 @@
     <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
     </form>
 <!-- In Customer Navbar -->
-<a href="{{ route('user.profile') }}" class="nav-link">
-    <i class="bi bi-person-circle"></i> Profile
-</a>
+
       <a href="#" class="text-white ms-3"><i class="bi bi-cart-fill fs-4"></i></a>
     </div>
   </div>
