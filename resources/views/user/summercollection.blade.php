@@ -6,11 +6,7 @@
         @foreach($products as $product)
             <div class="col-md-3 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-4 position-relative">
-                    <!-- Sale Circle Badge -->
-                    <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2 rounded-circle d-flex align-items-center justify-content-center"
-                          style="width: 40px; height: 40px; font-size: 0.9rem;">
-                        Sale
-                    </span>
+                  
                     <!-- Image -->
                        @if($product->image)
                     <a href="{{ route('product.details', $product->id) }}">
@@ -36,21 +32,27 @@
                         <p class="text-danger fw-bold fs-5 mb-2">
                             Rs.{{ number_format($product->price) }}
                         </p>
+                        
                        <!-- Description -->
                         <p class="text-muted small">{{ Str::limit($product->description, 60) }}</p>
                         <span class="align-middle">
                             <span class="d-inline-block rounded-circle me-1"
                                   style="width: 14px; height: 14px; vertical-align: middle; background-color: {{ $product->available === 'In Stock' ? '#28a745' : '#dc3545' }};">
                             </span>
+
+                         <div class="detail-row">
+                            <div class="product-label">Quantity:</div>
+                            <div class="product-value">{{ $product->quantity }}</div>
+                        </div>
                             <span class="text-muted small align-middle">
                                 {{ ucfirst($product->available) }}
                             </span>
                         </span>
 
-                        <a href="#" class="btn mt-auto rounded-pill fw-semibold"
-                           style="background-color: #1A1A1A; color: white;">
-                            ADD TO CART
-                        </a>
+                        <form method="POST" action="{{ route('cart.add', $product->id) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>

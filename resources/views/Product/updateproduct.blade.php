@@ -34,6 +34,10 @@
             <option >In Stock</option>
             <option >Out ofStock</option> <select>
     </div>
+     <div class="mb-3">
+        <label for="price" class="form-label">Quantity</label>
+        <input type="number" class="form-control" name="quantity"  value="{{$EditProduct->quantity}}" required>
+    </div>
       
     <button type="submit" class="btn btn-primary">Update Product</button>
 </form>

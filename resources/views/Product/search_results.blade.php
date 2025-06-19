@@ -51,6 +51,10 @@
 
                         <!-- Description -->
                         <p class="text-muted small">{{ Str::limit($product->description, 60) }}</p>
+                         <!-- Quantity -->
+                        <p class="text-danger fw-bold fs-5 mb-2">
+                            Rs.{{($product->quantity) }}
+                        </p>
 
                         <!-- Availability Indicator -->
                         <span class="align-middle">

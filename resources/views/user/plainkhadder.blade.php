@@ -12,11 +12,7 @@
         @foreach($products as $product)
             <div class="col-md-3 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-4 position-relative">
-                    <!-- Sale Badge -->
-                    <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2 rounded-circle d-flex align-items-center justify-content-center"
-                          style="width: 40px; height: 40px; font-size: 0.9rem;">
-                        Sale
-                    </span>
+                   
 
                     <!-- Product Image (clickable) -->
                     <a href="{{ route('product.details', $product->id) }}">
@@ -50,6 +46,11 @@
                         <!-- Short Description -->
                         <p class="text-muted small">{{ Str::limit($product->description, 60) }}</p>
 
+                         <div class="detail-row">
+                            <div class="product-label">Quantity:</div>
+                            <div class="product-value">{{ $product->quantity }}</div>
+                        </div>
+
                         <!-- Availability -->
                         <span class="align-middle">
                             <span class="d-inline-block rounded-circle me-1"
@@ -61,10 +62,10 @@
                         </span>
 
                         <!-- Add to Cart Button -->
-                        <a href="#" class="btn mt-auto rounded-pill fw-semibold"
-                           style="background-color: #1A1A1A; color: white;">
-                            ADD TO CART
-                        </a>
+                        <form method="POST" action="{{ route('cart.add', $product->id) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>

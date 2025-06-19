@@ -20,7 +20,14 @@
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text text-success"><strong>${{ $product->price }}</strong></p>
                         <p class="card-text">{{ Str::limit($product->description, 60) }}</p>
-                        <a href="#" class="btn btn-primary mt-auto">Add to Cart</a>
+                         <div class="detail-row">
+                            <div class="product-label">Quantity:</div>
+                            <div class="product-value">{{ $product->quantity }}</div>
+                        </div>
+                         <form method="POST" action="{{ route('cart.add', $product->id) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>

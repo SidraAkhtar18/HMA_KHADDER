@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 // Route for signup and login
 Route::get('/', [AuthController::class, 'Rindex'])->name('signup');
 Route::post('/signupstore', [AuthController::class, 'store'])->name('signup.store');
@@ -33,6 +34,7 @@ Route::post('/ProductEdit', [ProductController::class, 'edit'])->name('products.
 Route::post('/ProductUpdate', [ProductController::class, 'update'])->name('products.update');
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::post('/categorystore', [CategoryController::class, 'categorystore'])->name('category.store');
+Route::get('/orderlist', [OrderController::class, 'orderlist'])->name('order.list');
 //customer side product listing by catogory
 Route::get('/category/{category_id}/products', [ProductController::class, 'ShowCategory'])->name('category.products.show');
 // Route for About Us and Contact Us
@@ -52,3 +54,16 @@ Route::get('/shipping-policy', [HomeController::class, 'shipping'])->name('shipp
 
 //show product details
 Route::get('/product/{id}', [ProductController::class, 'showproductdetails'])->name('product.details');
+
+//show product cart page
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+
+Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('order.place');
+
+Route::get('/order-confirmed', function () {
+    return view('Product.order_confirmed');
+})->name('order.confirmed');
+

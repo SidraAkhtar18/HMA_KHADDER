@@ -35,6 +35,8 @@ class ProductController extends Controller
     $product->description = $request->description;
     $product->available =$request->available ;
     $product->category_id = $request->choose;
+     $product->quantity = $request->quantity;
+
 
     if ($request->hasFile('image')) {
         $image = $request->file('image');
@@ -74,6 +76,7 @@ class ProductController extends Controller
             $UpdateProduct->price = $request->price;
             $UpdateProduct->description = $request->description;
             $UpdateProduct->available = $request->available;
+             $UpdateProduct->quantity = $request->quantity;
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
@@ -157,12 +160,11 @@ public function search(Request $request)
     return view('user.search_results', compact('products', 'query'));
 }
 
+
 public function showproductdetails($id)
     {
         $product = Product::findOrFail($id);
         return view('Product.productdetails', compact('product'));
     }
-
-
 
 }

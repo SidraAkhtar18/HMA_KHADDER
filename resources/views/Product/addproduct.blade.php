@@ -24,6 +24,7 @@
         <label for="image" class="form-label">Product Image</label>
         <input type="file" class="form-control" name="image" accept="image/*" required>
     </div>
+    
     <div class="mb-3">
         <label for="">select Availablity</label>
         <select name="available" class="form-select" required>
@@ -40,6 +41,10 @@
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Quantity</label>
+        <input type="number" class="form-control" name="quantity" required>
     </div>
     <button type="submit" class="btn btn-primary">Add Product</button>
 </form>

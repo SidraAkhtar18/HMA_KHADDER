@@ -113,7 +113,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('category.index') }}">Add Category</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('product.index') }}">Add Product</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('product.list') }}">List Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('order.list') }}">Orders</a></li>
         </ul>
         <form class="d-flex me-3" role="search" method="GET" action="{{ route('admin.products.search') }}"> 
         <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
@@ -136,6 +136,7 @@
       @yield('updateproductcontent')
       @yield('categorycontent')
        @yield('adminsearchcontent')
+       @yield('orderlist')
       
     
     </div>

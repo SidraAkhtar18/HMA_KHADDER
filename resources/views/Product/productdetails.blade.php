@@ -73,6 +73,10 @@
                     <div class="product-label">Description:</div>
                     <div class="product-value">{{ $product->description }}</div>
                 </div>
+                 <div class="detail-row">
+                    <div class="product-label">Quantity:</div>
+                    <div class="product-value">{{ $product->quantity }}</div>
+                </div>
 
                 <!-- Stock -->
                 <div class="detail-row">

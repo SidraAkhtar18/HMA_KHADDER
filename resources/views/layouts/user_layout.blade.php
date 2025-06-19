@@ -148,18 +148,18 @@
     @yield('cat3content')
     @yield('cat4content')
     @yield('cat5content')
-
     @yield('contactus')
     @yield('aboutus')
     @yield('message')
-
-
     @yield('ERP')
     @yield('PP')
     @yield('SP')
     @yield('TOS')
     @yield('usersearchcontent')
-    @yield('productdetails)
+    @yield('productdetails')
+ @yield('cart')
+ @yield('confrimorder')
+ 
 
 
 

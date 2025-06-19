@@ -35,6 +35,7 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
+        
        $store=new Auth();
         $store->name = $request->name;
         $store->email = $request->email;
@@ -64,7 +65,7 @@ class AuthController extends Controller
                 return view ("User.home");
             }}
         else{
-            return view ("Auth.login");
+            return view ("Auth.login")->with('fail', 'Invalid detail');
 
     }}}
     public function logout(Request $request)

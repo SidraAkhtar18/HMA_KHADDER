@@ -15,6 +15,7 @@ return new class extends Migration
         $table->text('description');
         $table->string('image')->nullable(); // Image filename only
         $table->String('available'); 
+        $table->integer('quantity'); 
         $table->unsignedBigInteger('category_id');
         $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); 
         $table->timestamps();

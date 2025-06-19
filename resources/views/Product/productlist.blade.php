@@ -17,6 +17,7 @@
                 <th>Description</th>
                 <th>Price (Rs.)</th>
                  <th>Categories</th> 
+                 <th>Quantity</th>
                 <th>Edit</th>
                 <th>Delete</th>
                  <th>Available</th>
@@ -31,7 +32,8 @@
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
                 <td>{{ number_format($product->price, 2) }}</td> 
-                <td>{{ $product->category_id}}</td>                            
+                <td>{{ $product->category_id}}</td> 
+                <td>{{ $product->quantity}}</td>      
                   <td>
                 <form action="{{route('products.edit')}}" method="POST">
                 @csrf
