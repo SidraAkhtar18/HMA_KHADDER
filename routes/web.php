@@ -20,7 +20,6 @@ Route::post('/rolestore', [AuthController::class, 'rolestore'])->name('role.stor
 //auth
 Route::middleware(['auth'])->group(function () {
     Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');
-
 });
 // Route for Dashboard
 Route::get('/adminhome', [AdminController::class, 'Ahome'])->name('Admin.home');

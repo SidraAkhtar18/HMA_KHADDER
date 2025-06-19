@@ -20,18 +20,14 @@ class CartController extends Controller
             'description' => $product->description,
             'quantity' => 1,
         ];
-
         session()->put('cart', $cart);
         return redirect()->route('cart.show')->with('success', 'Product added to cart!');
     }
 
-    // Show Cart
     public function showCart()
     {
         return view('Product.cart');
     }
-
-    // Remove product from cart
     public function removeFromCart($id)
     {
         $cart = session()->get('cart');
