@@ -9,5 +9,5 @@ class AboutUsFeedback extends Model
 {
     use HasFactory;
     protected $fillable = ['username', 'userfeedback'];
-    protected $table = 'about_us_feedbacks'; // Specify the table name if it's different from the default
+   
 }

@@ -25,7 +25,7 @@
                     <option value="{{$role->id}}">{{$role->name}}</option>
                 @endforeach
             </select>       
-        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-primary">signup</button>
     </form>
 </div>
 @endsection

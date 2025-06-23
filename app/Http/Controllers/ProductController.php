@@ -106,9 +106,9 @@ class ProductController extends Controller
 
     public function ShowCategory(Request $request, $category_id)
 {
-    // Get products by category id
+
     $products = Product::where('category_id', $category_id)->get();
-    // Check category id and return appropriate view
+    
     if ($category_id == 1) {
         return view('user.productshowbycatogory1', compact('products'));
     } elseif ($category_id == 2) {
@@ -126,7 +126,7 @@ class ProductController extends Controller
 }
 public function search(Request $request)
 {
-    $searchTerm = $request->input('query'); // ✅ FIX here
+    $searchTerm = $request->input('query'); 
 
     $products = Product::where('name', 'like', '%' . $searchTerm . '%')
         ->orWhere('description', 'like', '%' . $searchTerm . '%')

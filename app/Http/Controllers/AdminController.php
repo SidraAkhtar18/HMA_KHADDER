@@ -14,7 +14,8 @@ class AdminController extends Controller
     }
 public function search(Request $request)
 {
-    $searchTerm = $request->input('query'); // ✅ FIX here
+   
+    $searchTerm = $request->input('query');
 
     $products = Product::where('name', 'like', '%' . $searchTerm . '%')
         ->orWhere('description', 'like', '%' . $searchTerm . '%')

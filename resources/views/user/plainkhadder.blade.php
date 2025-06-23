@@ -12,9 +12,6 @@
         @foreach($products as $product)
             <div class="col-md-3 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-4 position-relative">
-                   
-
-                    <!-- Product Image (clickable) -->
                     <a href="{{ route('product.details', $product->id) }}">
                         @if($product->image)
                             <img src="{{ asset('images/' . $product->image) }}"
@@ -27,15 +24,12 @@
                                  alt="No Image">
                         @endif
                     </a>
-
-                    <!-- Product Body -->
                     <div class="card-body text-center d-flex flex-column">
-                        <!-- Product Name -->
                         <h6 class="fw-bold mb-1" style="color: #1A1A1A;">
                             {{ $product->name }}
                         </h6>
 
-                        <!-- Prices -->
+           
                         <p class="text-muted mb-0" style="text-decoration: line-through;">
                             Rs.{{ number_format($product->price + 300) }}
                         </p>
@@ -43,7 +37,7 @@
                             Rs.{{ number_format($product->price) }}
                         </p>
 
-                        <!-- Short Description -->
+               
                         <p class="text-muted small">{{ Str::limit($product->description, 60) }}</p>
 
                          <div class="detail-row">
@@ -51,7 +45,6 @@
                             <div class="product-value">{{ $product->quantity }}</div>
                         </div>
 
-                        <!-- Availability -->
                         <span class="align-middle">
                             <span class="d-inline-block rounded-circle me-1"
                                   style="width: 14px; height: 14px; vertical-align: middle; background-color: {{ $product->available === 'In Stock' ? '#28a745' : '#dc3545' }};">
@@ -61,7 +54,7 @@
                             </span>
                         </span>
 
-                        <!-- Add to Cart Button -->
+                       
                         <form method="POST" action="{{ route('cart.add', $product->id) }}">
                             @csrf
                             <button type="submit" class="btn btn-primary">Add to Cart</button>

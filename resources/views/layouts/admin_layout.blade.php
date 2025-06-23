@@ -11,9 +11,9 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
-      --primary-color: #3B5998;    /* Deep Blue */
-      --accent-color: #A67C52;     /* Warm Beige */
-      --bg-color: #F2F2F2;         /* Light Background */
+      --primary-color: #3B5998;   
+      --accent-color: #A67C52;   
+      --bg-color: #F2F2F2;         
       --text-color: #1A1A1A;
       --hover-color: #2D4373;
     }
@@ -132,37 +132,39 @@
     </div>
   </main>
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container text-center text-md-start">
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <h6>Get in Touch</h6>
-          <p>Makki Madni Khaddar House, Kamalia...</p>
-          <p><i class="bi bi-envelope"></i> mmkhaddar@gmail.com</p>
-          <p><i class="bi bi-phone"></i> 0326-3477772</p>
-        </div>
-        <div class="col-md-4 mb-3">
-          <h6>Customer Care</h6>
-          <ul class="list-unstyled">
-            <li><a href="#">Exchange & Return Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 mb-3">
-          <h6>Information</h6>
-          <ul class="list-unstyled">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-          </ul>
-        </div>
+ <!-- ⚫ Footer -->
+<footer>
+  <div class="container text-center text-md-start">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h6>Get in touch</h6>
+        <p>Makki Madni Khaddar House, Kamalia...</p>
+        <p><i class="bi bi-envelope"></i> mmkhaddar@gmail.com</p>
+        <p><i class="bi bi-phone"></i> 03263477772</p>
       </div>
-      <div class="text-center">
-        <p>© 2025 HMA Khaddar. All Rights Reserved.</p>
+      <div class="col-md-4 mb-4">
+        <h6>Customer Care</h6>
+        <ul class="list-unstyled">
+            <li><a href="{{ route('exchange.return') }}">Exchange & Return Policy</a></li>
+    <li><a href="{{ route('terms') }}">Terms of Service</a></li>
+          <li><a href="{{route('contactus')}}">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6>Information</h6>
+        <ul class="list-unstyled">
+          <li><a href="{{route('aboutus')}}">About Us</a></li>
+           <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+    <li><a href="{{ route('shipping') }}">Shipping Policy</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="text-center mt-4">
+      <p>© 2025 HMA Khaddar. All Rights Reserved.</p>
+      <img src="{{ asset('images/payment-methods.png') }}" width="150" alt="Payment Methods">
+    </div>
+  </div>
+</footer>
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
