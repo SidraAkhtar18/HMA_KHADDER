@@ -5,7 +5,6 @@
             <div class="col-md-6 text-center text-md-start">
                 <h1 class="display-4 fw-bold mb-3">Welcome to HMA Khadder</h1>
                 <p class="lead mb-4">Discover premium quality Khadder fabrics for every season. Shop the latest collections and enjoy exclusive offers!</p>
-                <a href="{{ route('category.products.show', ['category_id' => 1]) }}" class="btn btn-primary btn-lg">Shop Now</a>
             </div>
             <div class="col-md-6 text-center">
                 <img src="{{ asset('images/P7.jpg') }}" alt="Khadder Fabrics" class="img-fluid rounded shadow" style="height: 350px; width: 350px; object-fit: cover;">

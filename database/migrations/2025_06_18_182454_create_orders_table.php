@@ -14,16 +14,12 @@ return new class extends Migration
     Schema::create('orders', function (Blueprint $table) {
         $table->id();
         $table->string('name');
-        $table->string('address');
-        $table->json('cart_items');  // store products as JSON
-        $table->integer('total');
+        $table->text('address');
+        $table->json('cart_items'); // 👈 this MUST be json or longText
+        $table->integer('total');   // 👈 must be integer
         $table->timestamps();
     });
 }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('orders');

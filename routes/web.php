@@ -13,16 +13,16 @@ Route::get('/', [AuthController::class, 'Rindex'])->name('signup');
 Route::post('/signupstore', [AuthController::class, 'store'])->name('signup.store');
 Route::get('/login', [AuthController::class, 'Lindex'])->name('login');
 Route::post('/loginstore', [AuthController::class, 'Auth'])->name('login.store');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'Logout'])->name('logout');
+
 // Route for Role selection
 Route::get('/addrole', [AuthController::class, 'role'])->name('role');
 Route::post('/rolestore', [AuthController::class, 'rolestore'])->name('role.store');
-//auth
+//auth Route for Dashboard
 Route::middleware(['auth'])->group(function () {
     Route::get('/customerhome', [HomeController::class, 'Chome'])->name('User.home');
+    Route::get('/adminhome', [AdminController::class, 'Ahome'])->name('Admin.home');
 });
-// Route for Dashboard
-Route::get('/adminhome', [AdminController::class, 'Ahome'])->name('Admin.home');
 Route::get('/customerhomein', [HomeController::class, 'Chome'])->name('Userhome');
 // Route for Product
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
@@ -59,10 +59,5 @@ Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
 Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
-
 Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('order.place');
-
-Route::get('/order-confirmed', function () {
-    return view('Product.order_confirmed');
-})->name('order.confirmed');
-
+Route::get('/order-confirmed', function () { return view('Product.order_confirmed');})->name('order.confirmed');

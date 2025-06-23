@@ -13,9 +13,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function Chome()
     {
         return view('User.home');
@@ -67,4 +65,5 @@ class HomeController extends Controller
     {
         return view('user.shippingpolicy');
     }
+   
 }

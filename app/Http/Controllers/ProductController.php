@@ -8,36 +8,25 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
    public function index()
-{
-    $categories = Category::all(); // for dropdown in form// get products with category name
-    return view('Product.addproduct', compact('categories'));
-}
-
+    {
+        $categories = Category::all();
+        return view('Product.addproduct', compact('categories'));
+    }
     public function productlist()
     {
         $products = Product::all();
         return view('product.productlist', compact('products'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
  public function productstore(Request $request)
 {
-
     $product = new Product();
     $product->name = $request->name;
     $product->price = $request->price;
     $product->description = $request->description;
     $product->available =$request->available ;
     $product->category_id = $request->choose;
-     $product->quantity = $request->quantity;
-
-
+    $product->quantity = $request->quantity;
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -137,34 +126,20 @@ class ProductController extends Controller
 }
 public function search(Request $request)
 {
-    $query = trim($request->input('query'));
+    $searchTerm = $request->input('query'); // ✅ FIX here
 
-    if (empty($query)) {
-        return view('user.search_results', [
-            'products' => [],
-            'query' => '',
-            'oops' => 'Please enter a search query.'
-        ]);
-    }
-
-    $products = Product::where('name', 'LIKE', "%$query%")->get();
+    $products = Product::where('name', 'like', '%' . $searchTerm . '%')
+        ->orWhere('description', 'like', '%' . $searchTerm . '%')
+        ->get();
 
     if ($products->isEmpty()) {
-        return view('user.search_results', [
-            'products' => [],
-            'query' => $query,
-            'oops' => 'No product found for "' . $query . '".'
-        ]);
+        return redirect()->back()->with('error', 'No products found matching your search.');
     }
-
-    return view('user.search_results', compact('products', 'query'));
+    return view('user.search_results', compact('products'));
 }
-
-
 public function showproductdetails($id)
     {
         $product = Product::findOrFail($id);
         return view('Product.productdetails', compact('product'));
     }
-
 }

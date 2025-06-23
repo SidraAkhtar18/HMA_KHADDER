@@ -2,14 +2,10 @@
 
 @section('usersearchcontent')
 <div class="container mt-4">
-
     <h3 class="mb-4">Search Products (User)</h3>
-    {{-- Error Message --}}
     @if(isset($oops))
         <div class="alert alert-warning">{{ $oops }}</div>
     @endif
-
-    {{-- Results --}}
     @if(!empty($query))
         <h5>Results for "<strong>{{ $query }}</strong>"</h5>
     @endif

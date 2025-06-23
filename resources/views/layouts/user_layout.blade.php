@@ -132,13 +132,11 @@
     <input class="form-control form-control-sm me-2" type="search" name="query" placeholder="Search products..." aria-label="Search">
     <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
     </form>
-<!-- In Customer Navbar -->
-
-      <a href="#" class="text-white ms-3"><i class="bi bi-cart-fill fs-4"></i></a>
+     <a class="nav-link" href="{{route('logout')}}">Logout</a>
     </div>
   </div>
 </nav>
-<!-- 🟡 Hero Section -->
+
 <main>
   <div class="fade-section" data-aos="fade-up">
     @yield('herocontent')
@@ -157,12 +155,8 @@
     @yield('TOS')
     @yield('usersearchcontent')
     @yield('productdetails')
- @yield('cart')
- @yield('confrimorder')
- 
-
-
-
+    @yield('cart')
+    @yield('confrimorder')
   </div>
 </main>
 
@@ -206,6 +200,7 @@
 <script>
   AOS.init({ duration: 800, once: true });
 </script>
+
 
 </body>
 </html>

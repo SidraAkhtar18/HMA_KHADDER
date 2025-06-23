@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Order; // Make sure you have this model
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -12,45 +12,45 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
-
-        $cart[$id] = [
-            'name' => $product->name,
-            'price' => $product->price,
-            'image' => $product->image,
-            'description' => $product->description,
-            'quantity' => 1,
-        ];
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                'name' => $product->name,
+                'price' => $product->price,
+                'image' => $product->image,
+                'description' => $product->description,
+                'quantity' => 1,
+            ];
+        }
         session()->put('cart', $cart);
         return redirect()->route('cart.show')->with('success', 'Product added to cart!');
     }
-
     public function showCart()
     {
         return view('Product.cart');
     }
     public function removeFromCart($id)
     {
-        $cart = session()->get('cart');
-        if(isset($cart[$id])) {
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
-        return redirect()->route('cart.show')->with('success', 'Product removed!');
+        return redirect()->route('cart.show')->with('success', 'Product removed from cart!');
     }
     public function updateQuantity(Request $request, $id)
-{
-    $cart = session()->get('cart');
-
-    if ($cart && isset($cart[$id])) {
-        if ($request->action === 'increase') {
-            $cart[$id]['quantity'] += 1;
-        } elseif ($request->action === 'decrease' && $cart[$id]['quantity'] > 1) {
-            $cart[$id]['quantity'] -= 1;
+    {
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            if ($request->action === 'increase') {
+                $cart[$id]['quantity']++;
+            } elseif ($request->action === 'decrease' && $cart[$id]['quantity'] > 1) {
+                $cart[$id]['quantity']--;
+            }
+            session()->put('cart', $cart);
         }
-        session()->put('cart', $cart);
+        return redirect()->route('cart.show');
     }
-
-    return redirect()->route('cart.show');
 }
 
-}

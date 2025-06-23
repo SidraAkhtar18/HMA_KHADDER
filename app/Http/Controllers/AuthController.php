@@ -22,20 +22,8 @@ class AuthController extends Controller
     {
         return view("Auth.role");
     }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
-    {
-        
+    {     
        $store=new Auth();
         $store->name = $request->name;
         $store->email = $request->email;
@@ -68,37 +56,8 @@ class AuthController extends Controller
             return view ("Auth.login")->with('fail', 'Invalid detail');
 
     }}}
-    public function logout(Request $request)
+    public function Logout()
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('success', 'Logged out successfully!');
-    }
-    public function show(Auth $auth)
-    {
-        
-    }
-
-    public function edit(Auth $auth)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Auth $auth)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Auth $auth)
-    {
-        //
+        return view('Auth.login');
     }
 }

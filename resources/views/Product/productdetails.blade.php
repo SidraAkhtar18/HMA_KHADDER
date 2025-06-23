@@ -87,19 +87,17 @@
                         </span>
                     </div>
                 </div>
-
                 <!-- Add to Cart -->
-                <div class="text-center mt-4">
-                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 py-2 " >Add to Cart</a>
-                </div>
-
+                <form method="POST" action="{{ route('cart.add', $product->id) }}">
+                @csrf
+               <button class="btn btn-primary btn-lg rounded-pill px-5 py-2 " >Add to Cart</button>
+                </form>
                 <!-- Back -->
-                <div class="mt-4 text-center">
+                <div class="mt-4 ">
                     <a href="{{ url()->previous() }}" class="btn btn-primary btn-lg rounded-pill px-5 py-2 ">
                         Back to Category
                     </a>
                 </div>
-
             </div>
         </div>
     </div>
